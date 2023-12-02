@@ -36,7 +36,7 @@
 	</script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>우리만의 영화</h1>
 <table id="list" width="90%">
 	<tr>
 		<th>Id</th>
@@ -44,6 +44,8 @@
 		<th>Title</th>
 		<th>Writer</th>
 		<th>Content</th>
+		<th>star</th>
+		<th>num</th>
 		<th>Regdate</th>
 		<th>Edit</th>
 		<th>Delete</th>
@@ -52,9 +54,12 @@
 		<tr>
 			<td>${u.getSeq()}</td>
 			<td>${u.getCategory()}</td>
-			<td>${u.getTitle()}</td>
+			<td><a href="view/${u.getSeq()}">${u.getTitle()}</a></td>
+				<%--        <td>${u.getTitle()}</td>--%>
 			<td>${u.getWriter()}</td>
 			<td>${u.getContent()}</td>
+			<td>${u.getStar()}</td>
+			<td>${u.getNum()}</td>
 			<td>${u.getRegdate()}</td>
 			<td><a href="editform/${u.getSeq()}">Edit</a></td>
 			<td><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></td>

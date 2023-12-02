@@ -14,13 +14,13 @@ public class BoardDAO {
 	JdbcTemplate jdbcTemplate;
 
 	public int insertBoard(BoardVO vo){
-		String sql = "insert into BOARD(title, writer, content, category) values("
+		String sql = "insert into BOARD(title, writer, content, category,star,num) values("
 				+"'"+vo.getTitle()+"',"
 				+"'"+vo.getWriter()+"',"
 				+"'"+vo.getContent()+"',"
-				+"'"+vo.getCategory()+"')";
-
-
+				+"'"+vo.getCategory()+"',"
+				+"'"+vo.getStar()+"',"
+				+"'"+vo.getNum()+"')";
 		return jdbcTemplate.update(sql);
 	}
 
@@ -34,7 +34,9 @@ public class BoardDAO {
 				+ "title='" + vo.getTitle() + "',"
 				+ "writer='" + vo.getWriter() + "',"
 				+ "content='" + vo.getContent() + "',"
-				+ "category='" + vo.getCategory() + "' "
+				+ "category='" + vo.getCategory() + "',"
+				+ "star='" + vo.getStar() + "',"
+				+ "num='" + vo.getNum() + "'"
 				+ "where seq = " + vo.getSeq();
 		return jdbcTemplate.update(sql);
 	}

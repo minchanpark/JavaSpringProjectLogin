@@ -13,6 +13,8 @@ public class BoardRowMapper implements RowMapper<BoardVO> {
         vo.setContent(rs.getString("content"));
         vo.setWriter(rs.getString("writer"));
         vo.setCategory(rs.getString("category"));
+        vo.setStar(rs.getString("star"));
+        vo.setNum(rs.getString("num"));
         vo.setRegdate(rs.getDate("regdate"));
         return vo;
     }
