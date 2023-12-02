@@ -15,10 +15,12 @@ public class BoardDAO {
 
 	public int insertBoard(BoardVO vo){
 		String sql = "insert into BOARD(title, writer, content, category) values("
-				+"'"+vo.getCategory()+"',"
 				+"'"+vo.getTitle()+"',"
 				+"'"+vo.getWriter()+"',"
-				+"'"+vo.getContent()+"')";
+				+"'"+vo.getContent()+"',"
+				+"'"+vo.getCategory()+"')";
+
+
 		return jdbcTemplate.update(sql);
 	}
 
@@ -27,8 +29,13 @@ public class BoardDAO {
 		return jdbcTemplate.update(sql);
 	}
 
-	public int updateBoard(BoardVO vo){
-		String sql = "update BOARD set title="+vo.getTitle()+"'," +"title='"+vo.getTitle()+"'," +"Writer='"+vo.getWriter()+"'," +"content='"+vo.getContent()+"'," +"category='"+vo.getCategory()+"',"+"'where seq="+vo.getSeq();
+	public int updateBoard(BoardVO vo) {
+		String sql = "update BOARD set "
+				+ "title='" + vo.getTitle() + "',"
+				+ "writer='" + vo.getWriter() + "',"
+				+ "content='" + vo.getContent() + "',"
+				+ "category='" + vo.getCategory() + "' "
+				+ "where seq = " + vo.getSeq();
 		return jdbcTemplate.update(sql);
 	}
 

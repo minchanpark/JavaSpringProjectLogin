@@ -15,7 +15,7 @@ public class BoardController {
 
     @RequestMapping("/")
     public String home(){
-        return "list";
+        return "redirect:list";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -37,7 +37,7 @@ public class BoardController {
         else{
             System.out.println("데이터추가 성공");
         }
-        return "redirect:../list";
+        return "redirect:/list";
     }
 
     @RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
@@ -58,7 +58,7 @@ public class BoardController {
         return "redirect:list";
     }
 
-    @RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deletePostOK(@PathVariable("id") int id){
         if(boardService.deleteBoard(id)==0){
             System.out.println("데이터 삭제 실패");
@@ -66,6 +66,6 @@ public class BoardController {
         else{
             System.out.println("데이터 삭제 성공!");
         }
-        return "redirect:list";
+        return "redirect:/list";
     }
 }
