@@ -29,7 +29,7 @@ public class BoardController {
         return "addpostform";
     }
 
-    @RequestMapping(value = "/addok", method = RequestMethod.POST)
+    @RequestMapping(value = "addok", method = RequestMethod.POST)
     public String addPostOK(BoardVO vo){
         if(boardService.insertBoard(vo)==0){
             System.out.println("데이터 추가 실패");
