@@ -23,7 +23,7 @@
 			<td><form:input path="title"/></td>
 		</tr>
 		<tr>
-			<td>Writer:</td>
+			<td>Director:</td>
 			<td><form:input path="writer"/></td>
 		</tr>
 		<tr>

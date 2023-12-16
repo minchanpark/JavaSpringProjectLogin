@@ -42,7 +42,7 @@
 		<th>Id</th>
 		<th>Category</th>
 		<th>Title</th>
-		<th>Writer</th>
+		<th>Director</th>
 		<th>Content</th>
 		<th>star</th>
 		<th>num</th>
@@ -66,6 +66,7 @@
 		</tr>
 	</c:forEach>
 </table>
+<button type="button" onclick="location.href='login/logout/'">Logout</button>
 <br/><button type="button" onclick="location.href='add/'">New post</button>
 </body>
 </html>

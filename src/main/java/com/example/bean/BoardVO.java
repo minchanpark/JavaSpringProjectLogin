@@ -13,6 +13,10 @@ public class BoardVO {
 	private Date regdate;
 	private int cnt;
 
+	private String userid;
+	private String password;
+	private String username;
+
 	public int getSeq() {
 		return seq;
 	}
@@ -64,5 +68,29 @@ public class BoardVO {
 	public String getCategory() {return category;}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

@@ -12,7 +12,7 @@
 <form action="../addok" method="post" enctype="application/x-www-form-urlencoded">
 <table>
     <tr><td>Title:</td><td><input type="text" name="title"/></td></tr>
-    <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>
+    <tr><td>Director:</td><td><input type="text" name="writer"/></td></tr>
     <tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
     <tr><td>Category:</td><td><input type="text" name="category"/></td></tr>
     <tr><td>Star:</td><td><input type="text" name="star"/></td></tr>

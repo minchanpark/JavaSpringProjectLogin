@@ -1,53 +1,43 @@
 package com.example.dao;
 
-import com.example.bean.BoardRowMapper;
 import com.example.bean.BoardVO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class BoardDAO {
+
 	@Autowired
-	JdbcTemplate jdbcTemplate;
+	SqlSession sqlSession;
+	public BoardVO getUser(BoardVO vo){
+		return sqlSession.selectOne("User.getUser", vo);
+	}
 
 	public int insertBoard(BoardVO vo){
-		String sql = "insert into BOARD(title, writer, content, category,star,num) values("
-				+"'"+vo.getTitle()+"',"
-				+"'"+vo.getWriter()+"',"
-				+"'"+vo.getContent()+"',"
-				+"'"+vo.getCategory()+"',"
-				+"'"+vo.getStar()+"',"
-				+"'"+vo.getNum()+"')";
-		return jdbcTemplate.update(sql);
+		int count = sqlSession.insert("Board.insertBoard", vo);
+		return count;
 	}
 
 	public int deleteBoard(int seq){
-		String sql = "delete from BOARD where seq = "+seq;
-		return jdbcTemplate.update(sql);
+		int delete = sqlSession.delete("Board.deleteBoard", seq);
+		return delete;
 	}
 
 	public int updateBoard(BoardVO vo) {
-		String sql = "update BOARD set "
-				+ "title='" + vo.getTitle() + "',"
-				+ "writer='" + vo.getWriter() + "',"
-				+ "content='" + vo.getContent() + "',"
-				+ "category='" + vo.getCategory() + "',"
-				+ "star='" + vo.getStar() + "',"
-				+ "num='" + vo.getNum() + "'"
-				+ "where seq = " + vo.getSeq();
-		return jdbcTemplate.update(sql);
+		int update = sqlSession.update("Board.updateBoard", vo);
+		return update;
 	}
 
 	public BoardVO getBoard(int seq){
-		String sql = "select * from BOARD where seq="+seq;
-		return jdbcTemplate.queryForObject(sql, new BoardRowMapper());
+		BoardVO one = sqlSession.selectOne("Board.getBoard", seq);
+		return one;
 	}
 
 	public List<BoardVO> getBoardList(){
-		String sql = "select * from BOARD order by regdate desc";
-		return jdbcTemplate.query(sql, new BoardRowMapper());
+		List<BoardVO> list = sqlSession.selectList("Board.getBoardList");
+		return list;
 	}
 }
